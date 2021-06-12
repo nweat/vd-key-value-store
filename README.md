@@ -12,7 +12,6 @@ an existing key is sent, the value should be updated
 
 <br>
 
-
 ```
 GET /
 ```
@@ -52,13 +51,14 @@ GET /:key/:timestamp
 
 ## Tech Stack
 - Express server bootstrapped with express generator
-- Mongoose ORM
+- Mongoose ORM (MongoDB Atlas)
 
 
 <br>
 
 ## DB 
 Here is a snapshot of the MongoDB structure containing the latest key/value pair along with a history of modifications.
+
 ![image info](db_structure.png)
 
 
