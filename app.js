@@ -5,9 +5,9 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 
-const vdStoreRouter = require('./routes/vd-store');
 
 const app = express();
+const vdStoreRouter = require('./routes/vd-store');
 require('dotenv').config();
 
 // view engine setup
@@ -35,12 +35,12 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('error', {message: 'Sorry, there was problem processing your request. '});
 });
 
 mongoose.connect(
   process.env.MONGODB_URI,
-  { useFindAndModify: false, useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true},
+  {useUnifiedTopology: true, useNewUrlParser: true},
   (err) => {
       if (err) return console.log("Error: ", err);
       console.log("MongoDB Connection -- Ready state is:", mongoose.connection.readyState);
